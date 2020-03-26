@@ -1,0 +1,41 @@
+// ======================================
+//  Partial Imports
+// ======================================
+
+$breakpoints: (
+
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,  
+    'xl': 1200px
+);
+
+@mixin mq($break) {
+    $value: map-get($breakpoints, $break);
+    @media (min-width: $value) {
+        @content;
+    }
+}
+
+
+@import 'simple-lightbox';
+
+.fancybox-image, .fancybox-outer, .fancybox-inner{
+    @include mq('md'){
+        width: 80%;
+        height: 80%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.form{
+    padding: 3rem 0;
+    width: 400px;
+    margin: auto;
+    input{
+        width: 100%;
+        padding: 0.5em;
+    }
+
+}
