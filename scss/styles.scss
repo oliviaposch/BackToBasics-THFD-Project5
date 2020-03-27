@@ -39,3 +39,14 @@ $breakpoints: (
     }
 
 }
+#photoGallery-thumbnails{
+    max-width: 992px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    img{
+        width: 200px;
+        margin: 10px;
+    }
+}

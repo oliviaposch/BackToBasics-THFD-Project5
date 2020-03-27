@@ -774,4 +774,14 @@ body.compensate-for-scrollbar {
     width: 100%;
     padding: 0.5em; }
 
+#photoGallery-thumbnails {
+  max-width: 992px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  #photoGallery-thumbnails img {
+    width: 200px;
+    margin: 10px; }
+
 /*# sourceMappingURL=styles.css.map */

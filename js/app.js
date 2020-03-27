@@ -1,21 +1,19 @@
 const html = $('#photoGallery-thumbnails');
-let searchField = $('#search').val('through'); 
-
-
-function searchAndCompair(searchTerm, captionText) {
-
-    let searchTermToLower = searchTerm.toLowerCase();
-    let captionTextToLower = captionText.toLowerCase();
-    const stringResult = captionTextToLower.indexOf(searchTermToLower);
-    return stringResult;
-}
+const searchField = $('#search'); 
+const searchFieldValue = searchField.val(); //console.log(searchFieldValue);
 
 /* function print_array_element(arr, i){
     return arr[i];
 }
+function searchAndCompair(searchTerm, captionText) {
+    captionText = print_array_element(captionText);
+    let searchTermToLower = searchTerm.toLowerCase();
+    let captionTextToLower = captionText.getAttribute('data-caption').toLowerCase();
+    const stringResult = captionTextToLower.indexOf(searchTermToLower);
+    return stringResult;
+}
  */
 
-const exemploText = searchField.val(); console.log(exemploText);
 
 
 $(document).ready(function() {
@@ -24,26 +22,18 @@ $(document).ready(function() {
     
     $.each(photoGallery, function( index, elements){
 
-        let imgCaption = elements.caption; console.log(index);
-        elementsThumbnails += `<a href="${elements.image}" data-fancybox="nature" data-caption="${imgCaption}">
+        let imgCaption = elements.caption; 
+        elementsThumbnails += `<div class="item"><a href="${elements.image}" data-fancybox="nature" data-caption="${imgCaption}">
                                     <img src="${elements.thumbnails}" alt="${elements.name}" title="${elements.name}" />
-                                </a>`; 
+                                </a></div>`; 
         html.html(elementsThumbnails);
-
-        //check if Search Input value and searched String found
-        if(searchField.val().length > 2 && searchAndCompair(exemploText, imgCaption) ){
-            if(searchAndCompair(exemploText, imgCaption) !== -1){
-                //here print the content of that founded String
-                html.html('content');
-            }
-           
-        }else{
-            html.html(elementsThumbnails);
-        }
-      
- 
+        
     });
 
+    /**
+     * SEARCH EVENT LISTENER 
+    */
+    
     /**
      * FANCYBOX SETTINGS
      */
