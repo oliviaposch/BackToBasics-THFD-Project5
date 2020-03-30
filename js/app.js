@@ -33,6 +33,13 @@ $(document).ready(function() {
     /**
      * SEARCH EVENT LISTENER 
     */
+    searchField.keyup(function(){
+        $('.item a').each(function(index){
+            console.log(index);
+        })
+    })
+
+    
     
     /**
      * FANCYBOX SETTINGS
