@@ -1,3 +1,6 @@
+
+/*jshint esversion: 6 */
+
 let photoGallery = [ 
     { 
         thumbnails: 'photos/thumbnails/01.jpg"',

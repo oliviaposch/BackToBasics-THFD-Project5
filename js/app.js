@@ -1,3 +1,6 @@
+
+/*jshint esversion: 6 */
+
 const html = $('#photoGallery-thumbnails');
 const searchField = $('#search'); 
 
@@ -36,8 +39,8 @@ $(document).ready(function() {
                     $(items[i]).parent().css('display', 'initial');
                 }
         
-        })
-    })
+        });
+    });
     
     /**
      * FANCYBOX SETTINGS
@@ -71,6 +74,6 @@ $(document).ready(function() {
                 '<div><img src="photos/icons/close.svg"/></div>' +
                 "</button>"
             }
-    })
+    });
     
-})
+});
