@@ -479,9 +479,8 @@ body.compensate-for-scrollbar {
   text-align: center;
   z-index: 99996; 
   //Media Queries
-
   @include mq('lg'){
-      bottom: 6%!important;
+      bottom: 0%!important;
       }
 
 }

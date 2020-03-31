@@ -65,11 +65,12 @@ $(document).ready(function() {
                 arrowRight:
                 '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
                 '<div><img src="photos/icons/next.png"/></div>' +
+                "</button>",
+                close:  
+                '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}">' +
+                '<div><img src="photos/icons/close.svg"/></div>' +
                 "</button>"
-            },
-            loop: false
-
-
+            }
     })
     
 })
