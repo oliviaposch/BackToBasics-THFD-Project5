@@ -1,29 +1,17 @@
 const html = $('#photoGallery-thumbnails');
 const searchField = $('#search'); 
-const searchFieldValue = searchField.val(); //console.log(searchFieldValue);
-
-/* function print_array_element(arr, i){
-    return arr[i];
-}
-function searchAndCompair(searchTerm, captionText) {
-    captionText = print_array_element(captionText);
-    let searchTermToLower = searchTerm.toLowerCase();
-    let captionTextToLower = captionText.getAttribute('data-caption').toLowerCase();
-    const stringResult = captionTextToLower.indexOf(searchTermToLower);
-    return stringResult;
-}
- */
-
 
 
 $(document).ready(function() {
 
     let elementsThumbnails = "";
     
+    /**
+     * Insert Object Array elements from photo_gallery.js to index.html
+     */
     $.each(photoGallery, function( index, elements){
 
-        let imgCaption = elements.caption; 
-        elementsThumbnails += `<div class="item"><a href="${elements.image}" data-fancybox="nature" data-caption="${imgCaption}">
+        elementsThumbnails += `<div class="item"><a href="${elements.image}" data-fancybox="nature" data-caption="${elements.caption}">
                                     <img src="${elements.thumbnails}" alt="${elements.name}" title="${elements.name}" />
                                 </a></div>`; 
         html.html(elementsThumbnails);
@@ -33,17 +21,28 @@ $(document).ready(function() {
     /**
      * SEARCH EVENT LISTENER 
     */
+
     searchField.keyup(function(){
-        $('.item a').each(function(index){
-            console.log(index);
+        const items = $('.item a');
+        $.each(items, function(i){
+                let itemAttr = $(items[i]).attr('data-caption');
+                
+                if ( itemAttr.toLowerCase().indexOf(searchField.val().toLowerCase()) < 0 ) {
+           
+                   $(items[i]).parent().css('display', 'none'); 
+
+                } else {
+                
+                    $(items[i]).parent().css('display', 'initial');
+                }
+        
         })
     })
-
-    
     
     /**
      * FANCYBOX SETTINGS
      */
+  
     $('[data-fancybox]').fancybox({
             //hide toobar buttons at the top
             buttons: [
@@ -67,7 +66,9 @@ $(document).ready(function() {
                 '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
                 '<div><img src="photos/icons/next.png"/></div>' +
                 "</button>"
-            }
+            },
+            loop: false
+
 
     })
     

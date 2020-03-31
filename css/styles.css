@@ -784,4 +784,7 @@ body.compensate-for-scrollbar {
     width: 200px;
     margin: 10px; }
 
+.fancybox-navigation .fancybox-button[disabled] {
+  display: none; }
+
 /*# sourceMappingURL=styles.css.map */

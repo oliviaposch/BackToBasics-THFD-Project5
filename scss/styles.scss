@@ -50,3 +50,7 @@ $breakpoints: (
         margin: 10px;
     }
 }
+
+.fancybox-navigation .fancybox-button[disabled] {
+    display: none;
+  }
